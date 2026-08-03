@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Campus Navigator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="app">
+
+        <header class="app-header">
+            <div class="title">🧭 Campus Navigator</div>
+            <div class="subtitle">SNU Chennai & SSNCE</div>
+        </header>
+
+        <main class="main">
+
+            <section class="controls-card compact">
+
+                <div class="route-bar">
+                    <div class="route-inputs">
+
+                        <div class="input-group">
+                            <span class="icon">📍</span>
+                            <input id="start" list="locations" placeholder="Your location">
+                        </div>
+
+                        <div class="arrow">→</div>
+
+                        <div class="input-group">
+                            <span class="icon">🏁</span>
+                            <input id="end" list="locations" placeholder="Destination">
+                        </div>
+
+                    </div>
+
+                    <div class="route-actions">
+                        <button class="btn primary" onclick="findPath()">Find</button>
+                        <button class="btn danger" onclick="location.reload()">Reset</button>
+                    </div>
+                </div>
+
+                <datalist id="locations"></datalist>
+
+            </section>
+
+            <section class="map-card">
+                <canvas id="canvas"></canvas>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- LEGEND AT BOTTOM -->
+    <div class="map-legend">
+        <strong>Legend</strong>
+        <span id="legend-start">🔵 Start</span>
+        <span id="legend-end">🟢 End</span>
+        <span>🔴 Path</span>
+    </div>
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,247 @@
+/* =========================
+   THEME VARIABLES
+========================= */
+:root {
+    --bg: #0f172a;
+    --card: #020617;
+    --text: #e5e7eb;
+    --muted: #9ca3af;
+    --border: #1e293b;
+
+    --primary: #3b82f6;
+    --primary-hover: #2563eb;
+    --danger: #ef4444;
+
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+}
+
+/* =========================
+   GLOBAL
+========================= */
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Inter", "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+/* =========================
+   APP
+========================= */
+.app {
+    max-width: 1200px;
+    margin: auto;
+    padding: 16px;
+}
+
+/* =========================
+   HEADER
+========================= */
+.title {
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.subtitle {
+    font-size: 14px;
+    color: var(--muted);
+}
+
+/* =========================
+   CARDS
+========================= */
+.controls-card,
+.map-card {
+    background: var(--card);
+    border-radius: 18px;
+    box-shadow: var(--shadow);
+}
+
+/* =========================
+   CONTROLS BAR
+========================= */
+.controls-card {
+    padding: 14px;
+    margin-bottom: 14px;
+}
+
+.route-bar {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: nowrap;
+}
+
+.route-inputs {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex: 1;
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 14px;
+    border-radius: 14px;
+    background: #0b1220;
+    border: 1px solid var(--border);
+    flex: 1;
+    min-width: 220px;
+}
+
+.arrow {
+    font-size: 18px;
+    color: var(--muted);
+}
+
+.input-group input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    color: var(--text);
+    font-size: 14px;
+}
+
+.input-group input::placeholder {
+    color: var(--muted);
+}
+
+.input-group input:focus {
+    outline: none;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+.route-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.btn {
+    padding: 12px 22px;
+    border-radius: 14px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.primary {
+    background: var(--primary);
+    color: #fff;
+}
+
+.primary:hover {
+    background: var(--primary-hover);
+}
+
+.danger {
+    background: var(--danger);
+    color: #fff;
+}
+
+/* =========================
+   MAP — DESKTOP DEFAULT
+   (Original behavior)
+========================= */
+.map-card {
+    padding: 8px;
+    min-height: 65dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+canvas {
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+    background: #00000010;
+}
+
+/* =========================
+   LEGEND
+========================= */
+.map-legend {
+    position: fixed;
+    bottom: 14px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--card);
+    padding: 10px 16px;
+    border-radius: 14px;
+    display: flex;
+    gap: 16px;
+    font-size: 13px;
+    box-shadow: var(--shadow);
+    z-index: 100;
+}
+
+/* =========================
+   MOBILE / SMALL SCREENS
+   (Vertical fit only)
+========================= */
+@media (max-width: 700px) {
+    .route-bar {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+    }
+
+    .route-inputs {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .input-group {
+        width: 100%;
+        min-width: unset;
+    }
+
+    .arrow {
+        display: none;
+    }
+
+    .route-actions {
+        width: 100%;
+    }
+
+    .btn {
+        flex: 1;
+    }
+
+    .map-card {
+        height: 60dvh;
+        overflow-x: auto;
+        overflow-y: hidden;
+        justify-content: flex-start;
+    }
+
+    canvas {
+        height: 100%;
+        width: auto;
+        max-height: 100%;
+    }
+
+    .title {
+        font-size: 24px;
+    }
+}
+
+/* =========================
+   LARGE SCREENS
+========================= */
+@media (min-width: 1024px) {
+    .map-card {
+        min-height: 75dvh;
+    }
+}
